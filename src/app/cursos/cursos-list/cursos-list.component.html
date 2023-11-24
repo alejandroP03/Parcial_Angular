@@ -1,0 +1,53 @@
+<main
+  class="container-fluid row p-5 bg-body-secondary"
+  style="min-height: 100vh; width: 100vw"
+  data-bs-theme="dark"
+>
+  <div class="container-md w-50 h-25 card bg-body-secondary p-3 col-2">
+    <h1>Top Cursos</h1>
+    <table class="table table-dark table-striped table-hover">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Nombre</th>
+          <th scope="col">Plataforma</th>
+          <th scope="col">Lanzamiento</th>
+          <th scope="col">Duración</th>
+        </tr>
+      </thead>
+      <tbody id="series_info" class="body_text">
+        <tr
+          *ngFor="let curso of cursos"
+          style="cursor: pointer"
+          (click)="onSelect(curso)"
+        >
+          <td>
+            <dd>{{ curso.id }}</dd>
+          </td>
+          <td>
+            <dd>
+              <a href="#" target="_blank">
+                {{ curso.title }}
+              </a>
+            </dd>
+          </td>
+          <td>
+            <dd>{{ curso.platform }}</dd>
+          </td>
+          <td>
+            <dd>{{ curso.launch_year }}</dd>
+          </td>
+          <td>
+            <dd>{{ curso.duration_hours }} horas</dd>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="text-md-start">
+      Los cursos: {{ certifiedCourses }} tienen certificado
+    </div>
+  </div>
+  <div *ngIf="selectedCurso" class="card col-sm-3 p-0 h-25">
+    <app-card-cursos [curso]="selectedCurso"></app-card-cursos>
+  </div>
+</main>
