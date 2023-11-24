@@ -1,8 +1,17 @@
-<div>
-  <img src="{{curso.image}}" id="card-img" class="card-img-top" />
+<div class="card">
+  <img src="{{ curso.image }}" class="card-img-top" />
   <div class="card-body">
     <h5 id="card-title" class="card-title">{{ curso.title }}</h5>
     <p id="card-description" class="card-text">{{ curso.description }}</p>
     <a href="" id="card-link"></a>
+  </div>
+  <div
+    class="card-footer {{
+      curso.offers_certificate ? 'text-success' : 'text-danger'
+    }}"
+  >
+    {{
+      curso.offers_certificate ? "Ofrece certificado" : "NO ofrece certificado"
+    }}
   </div>
 </div>
